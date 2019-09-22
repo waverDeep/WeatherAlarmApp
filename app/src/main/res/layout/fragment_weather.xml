@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            android:background="#F4F4F4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/top_main_layout"
+                android:elevation="20dp">
+
+                <ImageView
+                    android:id="@+id/btnRefresh"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/refresh"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"/>
+                <ImageView
+                    android:id="@+id/btnPlusCity"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/city_plus"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/txtHighTemper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="27°"
+                    android:layout_below="@+id/btnRefresh"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/textBlack"/>
+
+                <View
+                    android:id="@+id/temperVar"
+                    android:layout_width="1dp"
+                    android:layout_height="35dp"
+                    android:layout_below="@+id/txtHighTemper"
+                    android:background="#909090"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/txtMinTemper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22°"
+                    android:layout_below="@+id/temperVar"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/textGray"/>
+
+                <TextView
+                    android:id="@+id/txtMainTemper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23°"
+                    android:textSize="55dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBlue"
+                    android:layout_toRightOf="@id/temperVar"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginLeft="40dp"/>
+                <TextView
+                    android:id="@+id/txtArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울, 강서구"
+                    android:layout_below="@+id/txtMainTemper"
+                    android:layout_toRightOf="@+id/txtMinTemper"
+                    android:layout_marginLeft="25dp"/>
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtMinTemper"
+                    android:layout_marginLeft="25dp"
+                    android:text="09.05"
+                    android:textColor="@color/textBlack"
+                    android:layout_marginTop="40dp"/>
+                <TextView
+                    android:id="@+id/txtDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/txtDate"
+                    android:layout_below="@id/txtArea"
+                    android:text="목요일"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/textBlack"/>
+                <TextView
+                    android:id="@+id/txtWeather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대체로 흐림"
+                    android:layout_below="@+id/txtDate"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="7dp"/>
+
+                <ImageView
+                    android:id="@+id/imgWeather"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:src="@drawable/icon21"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"/>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalViewDaily"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BFBFBF"/>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalViewWeekly"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BFBFBF"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="10dp">
+            
+            <TextView
+                android:id="@+id/txtDustTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="미세먼지"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true" />
+            <TextView
+                android:id="@+id/txtDustState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"
+                android:textColor="@color/textBlue"
+                android:textSize="10dp"
+                android:layout_toRightOf="@+id/txtDustTitle"
+                android:layout_marginLeft="40dp"/>
+            <TextView
+                android:id="@+id/txtDustNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11 ㎛/m³"
+                android:textSize="9dp"
+                android:textColor="@color/textBlue"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/txtDustState"/>
+
+            <TextView
+                android:id="@+id/txtDustUpdateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20:00"
+                android:textColor="#909090"
+                android:textSize="9dp"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최종 업데이트"
+                android:layout_toLeftOf="@+id/txtDustUpdateTime"
+                android:textSize="9dp"
+                android:textColor="#909090"
+                android:layout_marginRight="5dp"/>
+            
+            <View
+                android:id="@+id/var1"
+                android:layout_width="90dp"
+                android:layout_height="5dp"
+                android:background="#0091FF"
+                android:layout_marginTop="30dp"/>
+            <View
+                android:id="@+id/var2"
+                android:layout_width="90dp"
+                android:layout_height="5dp"
+                android:background="#28D558"
+                android:layout_toRightOf="@+id/var1"
+                android:layout_marginTop="30dp"/>
+            <View
+                android:id="@+id/var3"
+                android:layout_width="90dp"
+                android:layout_height="5dp"
+                android:background="#FFA200"
+                android:layout_toRightOf="@+id/var2"
+                android:layout_marginTop="30dp"/>
+            <View
+                android:layout_width="89dp"
+                android:layout_height="5dp"
+                android:background="#C10000"
+                android:layout_toRightOf="@+id/var3"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음 0"
+                android:textColor="@color/textBlue"
+                android:textSize="9dp"
+                android:layout_below="@+id/var1"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9dp"
+                android:text="30"
+                android:layout_toRightOf="@+id/txt1"
+                android:layout_below="@+id/var1"
+                android:textColor="@color/textBlue"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="55dp"/>
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"
+                android:textSize="9dp"
+                android:textColor="#28D558"
+                android:layout_below="@+id/var2"
+                android:layout_toRightOf="@+id/txt2"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="2dp"/>
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9dp"
+                android:text="80"
+                android:layout_toRightOf="@+id/txt3"
+                android:layout_below="@+id/var1"
+                android:textColor="#28D558"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="60dp"/>
+            <TextView
+                android:id="@+id/txt5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"
+                android:textSize="9dp"
+                android:textColor="#FFA200"
+                android:layout_below="@+id/var2"
+                android:layout_toRightOf="@+id/txt4"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="2dp"/>
+            <TextView
+                android:id="@+id/txt6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9dp"
+                android:text="150"
+                android:layout_toRightOf="@+id/txt5"
+                android:layout_below="@+id/var1"
+                android:textColor="#FFA200"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="58dp"/>
+            <TextView
+                android:id="@+id/txt7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"
+                android:textSize="9dp"
+                android:textColor="#C10000"
+                android:layout_below="@+id/var2"
+                android:layout_toRightOf="@+id/txt6"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="2dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

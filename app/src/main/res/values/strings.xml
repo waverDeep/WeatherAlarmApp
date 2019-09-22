@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">WeatherAlarmApp</string>
+    <string name="app_name">SeoulAlarm</string>
+    <string name="temperMark">°</string>
+    <string name="dustMark">㎛/m³</string>
 </resources>
