@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="28dp"
+            android:id="@+id/tbAlarmDeleteCheck"
+            android:background="@drawable/delete_selector"
+            android:layout_marginHorizontal="12dp"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn=""
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvNoon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginStart="27dp"
+                android:text="오전"
+                android:textColor="@color/textBlack"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/textBlack"
+                android:text="07"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:id="@+id/tvHour"
+                android:layout_toEndOf="@id/tvNoon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="5dp"
+                android:id="@+id/tvColon"
+                android:layout_toEndOf="@+id/tvHour"
+                android:textSize="28sp"
+                android:textColor="@color/textBlack"
+                android:textStyle="bold"
+                android:text=":"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="5dp"
+                android:id="@+id/tvMinute"
+                android:layout_toEndOf="@+id/tvColon"
+                android:textSize="28sp"
+                android:textColor="@color/textBlack"
+                android:textStyle="bold"
+                android:text="10"/>
+
+            <ToggleButton
+                android:id="@+id/toggleButton"
+                android:layout_width="64dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="34dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_selector"
+                android:checked="true"
+                android:visibility="visible"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+
+            <ImageView
+                android:id="@+id/ivAlarmEdit"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/right"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_below="@+id/tvNoon"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="14dp"
+                android:id="@+id/ivMon"
+                android:src="@drawable/mon_g"/>
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/ivMon"
+                android:layout_below="@+id/tvNoon"
+                android:id="@+id/ivTue"
+                android:src="@drawable/tue_g"/>
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/ivTue"
+                android:layout_below="@+id/tvNoon"
+                android:id="@+id/ivWed"
+                android:src="@drawable/wed_g"/>
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/ivWed"
+                android:layout_below="@+id/tvNoon"
+                android:id="@+id/ivThu"
+                android:src="@drawable/thu_g"/>
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/ivThu"
+                android:layout_below="@+id/tvNoon"
+                android:id="@+id/ivFri"
+                android:src="@drawable/fri_g"/>
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/ivFri"
+                android:layout_below="@+id/tvNoon"
+                android:id="@+id/ivSat"
+                android:src="@drawable/sat_g"/>
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/ivSat"
+                android:layout_below="@+id/tvNoon"
+                android:id="@+id/ivSun"
+                android:src="@drawable/sun_g"
+                android:layout_marginBottom="20dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
