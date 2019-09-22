@@ -1,6 +1,7 @@
 package com.example.weatheralarmapp;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 
 class AlarmAdapter extends BaseAdapter {
     ArrayList<AlarmItem> alarms = new ArrayList<AlarmItem>();
+
 
     @Override
     public int getCount() {
@@ -38,6 +41,7 @@ class AlarmAdapter extends BaseAdapter {
         final int pos = position;
         final Context context = parent.getContext();
 
+
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -55,6 +59,10 @@ class AlarmAdapter extends BaseAdapter {
         ImageView friImageView = (ImageView) convertView.findViewById(R.id.ivFri);
         ImageView satImageView = (ImageView) convertView.findViewById(R.id.ivSat);
         ImageView sunImageView = (ImageView) convertView.findViewById(R.id.ivSun);
+        final ToggleButton toggleButton = (ToggleButton) convertView.findViewById(R.id.toggleButton);
+        final ToggleButton tbAlarmDeleteCheck = (ToggleButton) convertView.findViewById(R.id.tbAlarmDeleteCheck);
+        ImageView ivAlarmEdit = (ImageView) convertView.findViewById(R.id.ivAlarmEdit);
+
 
         // Data Set(AlarmItem)에서 position에 위치한 데이터 참조 획득
         AlarmItem alarmitem = alarms.get(position);
@@ -68,8 +76,8 @@ class AlarmAdapter extends BaseAdapter {
         satImageView.setImageDrawable(alarmitem.getSat());
         sunImageView.setImageDrawable(alarmitem.getSun());
         noonTextView.setText(alarmitem.getNoon());
-        hourTextView.setText(alarmitem.getHour());
-        minuteTextView.setText(alarmitem.getMinute());
+//        hourTextView.setText(alarmitem.getHour());
+//        minuteTextView.setText(alarmitem.getMinute());
 
 
 /*
@@ -81,6 +89,43 @@ class AlarmAdapter extends BaseAdapter {
         view.setNoon(item.getNoon());
 */
 
+
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean state = toggleButton.isChecked();
+                if(state == true)
+                {
+                    toggleButton.setChecked(false);
+                }
+                else if(state == false)
+                {
+                    toggleButton.setChecked(true);
+                }
+            }
+        });
+
+        tbAlarmDeleteCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean state = tbAlarmDeleteCheck.isChecked();
+                if(state == true)
+                {
+                    tbAlarmDeleteCheck.setChecked(false);
+                }
+                else if(state == false)
+                {
+                    tbAlarmDeleteCheck.setChecked(true);
+                }
+            }
+        });
+
+        ivAlarmEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return convertView;
     }
 
@@ -89,7 +134,21 @@ class AlarmAdapter extends BaseAdapter {
     }
 
     public void addItem(AlarmItem item){
-        alarms.add(item);
+
+        AlarmItem items = new AlarmItem();
+
+        items.setMon(item.mon);
+        items.setTue(item.mon);
+        items.setWed(item.mon);
+        items.setThu(item.mon);
+        items.setFri(item.mon);
+        items.setSat(item.mon);
+        items.setSun(item.mon);
+        items.setHour(item.hour);
+        items.setMinute(item.minute);
+        items.setNoon(item.noon);
+
+        alarms.add(items);
     }
 
 }
