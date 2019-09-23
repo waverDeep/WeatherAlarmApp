@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 class AlarmAdapter extends BaseAdapter {
     ArrayList<AlarmItem> alarms = new ArrayList<AlarmItem>();
+    Context context;
 
 
     @Override
@@ -40,7 +41,7 @@ class AlarmAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         final int pos = position;
-        final Context context = parent.getContext();
+        context = parent.getContext();
 /*
         AlarmView view = new AlarmView(context);
         AlarmItem item = alarms.get(pos);
@@ -133,8 +134,8 @@ class AlarmAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(this, AlarmAddActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(context, AlarmAddActivity.class);
+                context.startActivity(intent);
 
             }
         });

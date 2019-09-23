@@ -131,7 +131,13 @@ public class FragmentAlarm extends Fragment {
             }
         });
 
-
+        tvPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AlarmAddActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
