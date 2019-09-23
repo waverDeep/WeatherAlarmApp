@@ -19,6 +19,7 @@ public class FragmentWeatherAlarmOpened extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_weather_alarm_opened, container, false);
 
+        Log.d("bbb","bbb");
         ImageView imageView = (ImageView) rootView.findViewById(R.id.imgWeatherAlarmClose);
 
         imageView.setOnClickListener(new View.OnClickListener() {
