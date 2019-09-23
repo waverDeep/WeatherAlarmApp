@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80dp"
+    android:layout_height="150dp"
+    android:gravity="center_horizontal"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:id="@+id/txtDailyItemTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="지금"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        android:textColor="@color/textBlack"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/txtDailyItemRain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="40%"
+        android:textSize="9dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/textBlue"
+        android:layout_below="@+id/txtDailyItemTime"/>
+
+    <ImageView
+        android:id="@+id/imgDailyItemIcon"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/icon03"
+        android:layout_below="@id/txtDailyItemRain"/>
+    <TextView
+        android:id="@+id/txtDailyItemTemper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="23°"
+        android:textSize="11dp"
+        android:textColor="@color/textBlack"
+        android:layout_below="@+id/imgDailyItemIcon"
+        android:gravity="center_horizontal"/>
+
+
+
+</RelativeLayout>

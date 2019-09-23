@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/weather_dialog_round_white_background">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+            <TextView
+                android:id="@+id/txtPosition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="현재위치"
+                android:textColor="@color/textBlack"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/txtArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="서울, 강서구"
+                android:textSize="12dp"
+                android:textColor="@color/textGray"
+                android:layout_marginBottom="10dp"/>
+            
+            <EditText
+                android:id="@+id/edtArea"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textSize="14dp"
+                android:background="@drawable/weather_round_grey_background"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:paddingLeft="40dp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnCancel"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/cancel"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="230dp"/>
+
+        <ImageView
+            android:id="@+id/btnSearch"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:src="@drawable/search"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="85dp"/>
+
+
+    </FrameLayout>
+
+</RelativeLayout>
