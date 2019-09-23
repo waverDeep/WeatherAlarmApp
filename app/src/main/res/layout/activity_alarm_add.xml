@@ -152,6 +152,6 @@
         android:id="@+id/alarmFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.seoulalarm.FragmentAlarm"/>
+        android:name="com.example.weatheralarmapp.FragmentAlarm"/>
 
 </LinearLayout>

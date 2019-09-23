@@ -2,6 +2,8 @@ package com.example.weatheralarmapp;
 
 
 import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import android.widget.ToggleButton;
 
 public class AlarmItem {
     String noon;
@@ -14,6 +16,34 @@ public class AlarmItem {
     Drawable fri;
     Drawable sat;
     Drawable sun;
+
+    ToggleButton toggleButton;
+    ToggleButton tbAlarmDeleteCheck;
+    Drawable ivAlarmEdit;
+
+    public Drawable getIvAlarmEdit() {
+        return ivAlarmEdit;
+    }
+
+    public void setIvAlarmEdit(Drawable ivAlarmEdit) {
+        this.ivAlarmEdit = ivAlarmEdit;
+    }
+
+    public ToggleButton getToggleButton() {
+        return toggleButton;
+    }
+
+    public void setToggleButton(ToggleButton toggleButton) {
+        this.toggleButton = toggleButton;
+    }
+
+    public ToggleButton getTbAlarmDeleteCheck() {
+        return tbAlarmDeleteCheck;
+    }
+
+    public void setTbAlarmDeleteCheck(ToggleButton tbAlarmDeleteCheck) {
+        this.tbAlarmDeleteCheck = tbAlarmDeleteCheck;
+    }
 
     public String getNoon() {
         return noon;
@@ -108,6 +138,9 @@ public class AlarmItem {
                 ", fri=" + fri +
                 ", sat=" + sat +
                 ", sun=" + sun +
+                ", toggleButton=" + toggleButton +
+                ", tbAlarmDeleteCheck=" + tbAlarmDeleteCheck +
+                ", ivAlarmEdit=" + ivAlarmEdit +
                 '}';
     }
 }
