@@ -19,6 +19,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.menu.MenuAdapter;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
@@ -37,32 +38,29 @@ public class FragmentAlarm extends Fragment {
 
     AlarmAdapter adapter;
 
-    ImageView ivAlarmEdit;
-
-    ToggleButton toggleButton;
-    ToggleButton tbAlarmDeleteCheck;
-
     String noon;
-    int hour;
-    int minute;
+    String hour;
+    String minute;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_alarm, container, false);
 
-        tvEdit = (TextView) getView().findViewById(R.id.tvEdit);
-        tvAlarm = (TextView) getView().findViewById(R.id.tvAlarm);
-        tvPlus = (TextView) getView().findViewById(R.id.tvPlus);
-        tvCancle = (TextView) getView().findViewById(R.id.tvCancle);
-        listAlarm = (ListView) getView().findViewById(R.id.listAlarm);
+        tvEdit = (TextView) view.findViewById(R.id.tvEdit);
+        tvAlarm = (TextView) view.findViewById(R.id.tvAlarm);
+        tvPlus = (TextView) view.findViewById(R.id.tvPlus);
+        tvCancle = (TextView) view.findViewById(R.id.tvCancle);
+        listAlarm = (ListView) view.findViewById(R.id.listAlarm);
 
-        toggleButton = (ToggleButton) getView().findViewById(R.id.toggleButton);
-        tbAlarmDeleteCheck = (ToggleButton) getView().findViewById(R.id.tbAlarmDeleteCheck);
+ //       toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton);
+ //       tbAlarmDeleteCheck = (ToggleButton) view.findViewById(R.id.tbAlarmDeleteCheck);
 
         adapter = new AlarmAdapter();
 
         listAlarm.setAdapter(adapter);
+
+        adapter.addItem(new AlarmItem()); //여기서는 db에 있는 내용으로 받아와서 넣기
 
         /* 리스트 자체 클릭 기능은 없다
         listAlarm.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -99,12 +97,18 @@ public class FragmentAlarm extends Fragment {
         });
 */
 
+
+
         tvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 tvEdit.setVisibility(View.GONE);
                 tvCancle.setVisibility(View.VISIBLE);
+
+                ImageView ivAlarmEdit = (ImageView) view.findViewById(R.id.ivAlarmEdit);
+                ToggleButton toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton);
+                ToggleButton tbAlarmDeleteCheck = (ToggleButton) view.findViewById(R.id.tbAlarmDeleteCheck);
 
                 tbAlarmDeleteCheck.setVisibility(View.VISIBLE);
                 toggleButton.setVisibility(View.GONE);
@@ -118,47 +122,20 @@ public class FragmentAlarm extends Fragment {
             public void onClick(View v) {
                 tvEdit.setVisibility(View.VISIBLE);
                 tvCancle.setVisibility(View.GONE);
-
+                ImageView ivAlarmEdit = (ImageView) view.findViewById(R.id.ivAlarmEdit);
+                ToggleButton toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton);
+                ToggleButton tbAlarmDeleteCheck = (ToggleButton) view.findViewById(R.id.tbAlarmDeleteCheck);
                 tbAlarmDeleteCheck.setVisibility(View.GONE);
                 toggleButton.setVisibility(View.VISIBLE);
                 ivAlarmEdit.setVisibility(View.GONE);
             }
         });
 
-        tbAlarmDeleteCheck.setOnClickListener(new View.OnClickListener() {
+        tvPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean state = toggleButton.isChecked();
-                if(state == true)
-                {
-                    toggleButton.setChecked(false);
-                }
-                else if(state == false)
-                {
-                    toggleButton.setChecked(true);
-                }
-            }
-        });
-
-        tbAlarmDeleteCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean state = tbAlarmDeleteCheck.isChecked();
-                if(state == true)
-                {
-                    tbAlarmDeleteCheck.setChecked(false);
-                }
-                else if(state == false)
-                {
-                    tbAlarmDeleteCheck.setChecked(true);
-                }
-            }
-        });
-
-        ivAlarmEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), AlarmAddActivity.class);
+                startActivity(intent);
             }
         });
 

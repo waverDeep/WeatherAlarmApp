@@ -3,9 +3,11 @@ package com.example.weatheralarmapp;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.DrawableRes;
 
@@ -23,6 +25,11 @@ public class AlarmView extends LinearLayout {
     TextView tvMinute;
     TextView tvNoon;
 
+    ToggleButton toggleButton;
+    ToggleButton tbAlarmDeleteCheck;
+    ImageView ivAlarmEdit;
+
+
     public AlarmView(Context context) {
         super(context);
 
@@ -39,25 +46,65 @@ public class AlarmView extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.alarm_item, this, true);
 
-        ivMon = findViewById(R.id.ivMon);
-        ivTue = findViewById(R.id.ivTue);
-        ivWed = findViewById(R.id.ivWed);
-        ivThu = findViewById(R.id.ivThu);
-        ivFri = findViewById(R.id.ivFri);
-        ivSat = findViewById(R.id.ivSat);
-        ivSun = findViewById(R.id.ivSun);
+        ivMon = (ImageView) findViewById(R.id.ivMon);
+        ivTue = (ImageView) findViewById(R.id.ivTue);
+        ivWed = (ImageView) findViewById(R.id.ivWed);
+        ivThu = (ImageView) findViewById(R.id.ivThu);
+        ivFri = (ImageView) findViewById(R.id.ivFri);
+        ivSat = (ImageView) findViewById(R.id.ivSat);
+        ivSun = (ImageView) findViewById(R.id.ivSun);
 
-        tvHour = findViewById(R.id.tvHour);
-        tvMinute = findViewById(R.id.tvMinute);
-        tvNoon = findViewById(R.id.tvMinute);
+        tvHour = (TextView) findViewById(R.id.tvHour);
+        tvMinute = (TextView) findViewById(R.id.tvMinute);
+        tvNoon = (TextView) findViewById(R.id.tvMinute);
 
+        toggleButton = findViewById(R.id.toggleButton);
+        tbAlarmDeleteCheck = findViewById(R.id.tbAlarmDeleteCheck);
+        ivAlarmEdit = findViewById(R.id.ivAlarmEdit);
+
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean state = toggleButton.isChecked();
+                if(state == true)
+                {
+                    toggleButton.setChecked(false);
+                }
+                else if(state == false)
+                {
+                    toggleButton.setChecked(true);
+                }
+            }
+        });
+
+        tbAlarmDeleteCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean state = tbAlarmDeleteCheck.isChecked();
+                if(state == true)
+                {
+                    tbAlarmDeleteCheck.setChecked(false);
+                }
+                else if(state == false)
+                {
+                    tbAlarmDeleteCheck.setChecked(true);
+                }
+            }
+        });
+
+        ivAlarmEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
-    public void setHour(int hour) {
+    public void setHour(String hour) {
         tvHour.setText(hour);
     }
 
-    public void setMinute(int minute) {
+    public void setMinute(String minute) {
         tvMinute.setText(minute);
     }
 
@@ -91,5 +138,16 @@ public class AlarmView extends LinearLayout {
 
     public void setIvSun(ImageView ivSun) {
         ivSun.setImageResource(R.drawable.sun);
+    }
+
+    public void setEdit(ToggleButton toggleButton, ToggleButton tbAlarmDeleteCheck, ImageView ivAlarmEdit){
+        tbAlarmDeleteCheck.setVisibility(View.VISIBLE);
+        toggleButton.setVisibility(View.GONE);
+        ivAlarmEdit.setVisibility(View.VISIBLE);
+    }
+    public void setCancle(ToggleButton toggleButton, ToggleButton tbAlarmDeleteCheck, ImageView ivAlarmEdit){
+        tbAlarmDeleteCheck.setVisibility(View.GONE);
+        toggleButton.setVisibility(View.VISIBLE);
+        ivAlarmEdit.setVisibility(View.GONE);
     }
 }
