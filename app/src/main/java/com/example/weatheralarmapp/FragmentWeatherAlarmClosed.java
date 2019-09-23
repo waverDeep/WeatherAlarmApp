@@ -1,10 +1,12 @@
 package com.example.weatheralarmapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +25,8 @@ public class FragmentWeatherAlarmClosed extends Fragment {
             @Override
             public void onClick(View v) {
                 AlarmAddActivity alarmAddActivity = (AlarmAddActivity) getActivity();
+//                Toast.makeText(getContext(), "Closed", Toast.LENGTH_LONG).show();
+                Log.d("Closed", "closed");
                 alarmAddActivity.onFragmentChange(0);
             }
         });

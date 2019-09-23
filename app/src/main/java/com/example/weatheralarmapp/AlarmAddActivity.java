@@ -14,10 +14,11 @@ public class AlarmAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_add);
 
-        fragmentWeatherAlarmClosed = (FragmentWeatherAlarmClosed)getSupportFragmentManager().findFragmentById(R.id.alarmFragmentContainer);
+        fragmentWeatherAlarmClosed = (FragmentWeatherAlarmClosed)getSupportFragmentManager().findFragmentById(R.id.fragmentWeatherAlarm);
+
 
         fragmentWeatherAlarmOpened = new FragmentWeatherAlarmOpened();
-        getSupportFragmentManager().beginTransaction().add(R.id.alarmFragmentContainer,fragmentWeatherAlarmOpened).commit();
+//        getSupportFragmentManager().beginTransaction().add(R.id.alarmFragmentContainer,fragmentWeatherAlarmOpened).commit();
     }
 
     public void onFragmentChange(int index){
