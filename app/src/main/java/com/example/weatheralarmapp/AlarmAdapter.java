@@ -1,6 +1,7 @@
 package com.example.weatheralarmapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,21 @@ class AlarmAdapter extends BaseAdapter {
 
         final int pos = position;
         final Context context = parent.getContext();
+/*
+        AlarmView view = new AlarmView(context);
+        AlarmItem item = alarms.get(pos);
+
+        view.setHour(item.getHour());
+        view.setMinute(item.getMinute());
+        view.setNoon(item.getNoon());
+        view.setIvMon(item.getMon());
+        view.setIvTue(item.getTue());
+        view.setIvWed(item.getWed());
+        view.setIvThu(item.getThu());
+        view.setIvFri(item.getFri());
+        view.setIvSat(item.getSat());
+        view.setIvSun(item.getSun());
+*/
 
 
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
@@ -64,6 +80,8 @@ class AlarmAdapter extends BaseAdapter {
         ImageView ivAlarmEdit = (ImageView) convertView.findViewById(R.id.ivAlarmEdit);
 
 
+
+/*
         // Data Set(AlarmItem)에서 position에 위치한 데이터 참조 획득
         AlarmItem alarmitem = alarms.get(position);
 
@@ -77,19 +95,10 @@ class AlarmAdapter extends BaseAdapter {
         sunImageView.setImageDrawable(alarmitem.getSun());
         noonTextView.setText(alarmitem.getNoon());
 //        hourTextView.setText(alarmitem.getHour());
-//        minuteTextView.setText(alarmitem.getMinute());
-
-
-/*
-        AlarmView view = new AlarmView(parent.getContext());
-
-        AlarmItem item = alarms.get(position);
-        view.setHour(item.getHour());
-        view.setMinute(item.getMinute());
-        view.setNoon(item.getNoon());
+ //       minuteTextView.setText(alarmitem.getMinute());
 */
 
-
+/*
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,15 +128,21 @@ class AlarmAdapter extends BaseAdapter {
                 }
             }
         });
-
+*/
         ivAlarmEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(this, AlarmAddActivity.class);
+                startActivity(intent);
+
             }
         });
+
         return convertView;
     }
+
+
 
     public void onClick(int position, AlarmItem item) {
         alarms.set(position, item);
@@ -138,15 +153,18 @@ class AlarmAdapter extends BaseAdapter {
         AlarmItem items = new AlarmItem();
 
         items.setMon(item.mon);
-        items.setTue(item.mon);
-        items.setWed(item.mon);
-        items.setThu(item.mon);
-        items.setFri(item.mon);
-        items.setSat(item.mon);
-        items.setSun(item.mon);
+        items.setTue(item.tue);
+        items.setWed(item.wed);
+        items.setThu(item.thu);
+        items.setFri(item.fri);
+        items.setSat(item.sat);
+        items.setSun(item.sun);
         items.setHour(item.hour);
         items.setMinute(item.minute);
         items.setNoon(item.noon);
+ //       items.setIvAlarmEdit(item.ivAlarmEdit);
+//        items.setTbAlarmDeleteCheck(item.tbAlarmDeleteCheck);
+ //       items.setToggleButton(item.toggleButton);
 
         alarms.add(items);
     }

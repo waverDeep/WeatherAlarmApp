@@ -38,14 +38,9 @@ public class FragmentAlarm extends Fragment {
 
     AlarmAdapter adapter;
 
-    ImageView ivAlarmEdit;
-
-    ToggleButton toggleButton;
-    ToggleButton tbAlarmDeleteCheck;
-
     String noon;
-    int hour;
-    int minute;
+    String hour;
+    String minute;
 
     @Nullable
     @Override
@@ -58,8 +53,8 @@ public class FragmentAlarm extends Fragment {
         tvCancle = (TextView) view.findViewById(R.id.tvCancle);
         listAlarm = (ListView) view.findViewById(R.id.listAlarm);
 
-        toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton);
-        tbAlarmDeleteCheck = (ToggleButton) view.findViewById(R.id.tbAlarmDeleteCheck);
+ //       toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton);
+ //       tbAlarmDeleteCheck = (ToggleButton) view.findViewById(R.id.tbAlarmDeleteCheck);
 
         adapter = new AlarmAdapter();
 
@@ -102,12 +97,18 @@ public class FragmentAlarm extends Fragment {
         });
 */
 
+
+
         tvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 tvEdit.setVisibility(View.GONE);
                 tvCancle.setVisibility(View.VISIBLE);
+
+                ImageView ivAlarmEdit = (ImageView) view.findViewById(R.id.ivAlarmEdit);
+                ToggleButton toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton);
+                ToggleButton tbAlarmDeleteCheck = (ToggleButton) view.findViewById(R.id.tbAlarmDeleteCheck);
 
                 tbAlarmDeleteCheck.setVisibility(View.VISIBLE);
                 toggleButton.setVisibility(View.GONE);
@@ -121,7 +122,9 @@ public class FragmentAlarm extends Fragment {
             public void onClick(View v) {
                 tvEdit.setVisibility(View.VISIBLE);
                 tvCancle.setVisibility(View.GONE);
-
+                ImageView ivAlarmEdit = (ImageView) view.findViewById(R.id.ivAlarmEdit);
+                ToggleButton toggleButton = (ToggleButton) view.findViewById(R.id.toggleButton);
+                ToggleButton tbAlarmDeleteCheck = (ToggleButton) view.findViewById(R.id.tbAlarmDeleteCheck);
                 tbAlarmDeleteCheck.setVisibility(View.GONE);
                 toggleButton.setVisibility(View.VISIBLE);
                 ivAlarmEdit.setVisibility(View.GONE);
