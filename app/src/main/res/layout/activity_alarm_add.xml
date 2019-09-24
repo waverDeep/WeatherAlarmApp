@@ -148,10 +148,19 @@
         android:background="#BFBFBF"
         android:layout_centerInParent="true"/>
 
-    <fragment
-        android:id="@+id/alarmFragmentContainer"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.weatheralarmapp.FragmentAlarm"/>
+        android:orientation="vertical"
+        android:id="@+id/alarmFragmentContainer">
+
+        <FrameLayout
+            android:id="@+id/fragmentWeatherAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.weatheralarmapp.FragmentWeatherAlarmClosed"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>
