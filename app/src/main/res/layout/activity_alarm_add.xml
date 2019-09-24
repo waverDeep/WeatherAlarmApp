@@ -9,14 +9,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="0dp"
+        android:padding="28dp"
         android:background="#ffffff"
-        android:elevation="10dp">
+        android:elevation="10dp"
+        android:layout_weight="1">
 
         <TextView
+            android:id="@+id/tvAlarmEditCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="취소"
@@ -34,6 +34,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvAlarmEditSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="저장"
@@ -43,124 +44,142 @@
 
     </RelativeLayout>
 
-    <TimePicker
-        android:id="@+id/time_picker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:timePickerMode="spinner">
-
-    </TimePicker>
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:columnCount="8"
-        android:rowCount="1">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="반복"
-            android:textSize="12sp"
-            android:textColor="#000000"
-            android:textStyle="normal"
-            android:layout_gravity="center_vertical"
-            android:padding="16dp"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/mon_g"
-            android:scaleType="fitCenter"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/tue_g"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/wed_g"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/thu_g"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/fri_g"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/sat_g"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/sun_g"/>
-
-
-    </GridLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#BFBFBF"
-        android:layout_centerInParent="true"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="사운드"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            android:textColor="#000000"
-            android:padding="16dp"
-            android:layout_alignParentLeft="true"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Spinner
-                android:layout_width="216dp"
-                android:layout_height="37dp"
-                android:layout_centerInParent="true" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#BFBFBF"
-        android:layout_centerInParent="true"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:id="@+id/alarmFragmentContainer">
+        android:layout_weight="9"
+        android:background="#ffffff">
 
-        <FrameLayout
-            android:id="@+id/fragmentWeatherAlarm"
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:timePickerMode="spinner">
+
+        </TimePicker>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:columnCount="8"
+            android:rowCount="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="반복"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:textStyle="normal"
+                android:layout_gravity="center_vertical"
+                android:padding="16dp"/>
+
+            <ImageView
+                android:id="@+id/imgRepeatMon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/mon_g"
+                android:scaleType="fitCenter"/>
+
+            <ImageView
+                android:id="@+id/imgRepeatTue"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/tue_g"/>
+
+            <ImageView
+                android:id="@+id/imgRepeatWed"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/wed_g"/>
+
+            <ImageView
+                android:id="@+id/imgRepeatThur"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/thu_g"/>
+
+            <ImageView
+                android:id="@+id/imgRepeatFri"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/fri_g"/>
+
+            <ImageView
+                android:id="@+id/imgRepeatSat"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/sat_g"/>
+
+            <ImageView
+                android:id="@+id/imgRepeatSun"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/sun_g"/>
+
+
+        </GridLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#BFBFBF"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사운드"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                android:textColor="#000000"
+                android:padding="16dp"
+                android:layout_alignParentLeft="true"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:layout_width="216dp"
+                    android:layout_height="37dp"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#BFBFBF"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.example.weatheralarmapp.FragmentWeatherAlarmClosed"/>
+            android:orientation="vertical"
+            android:id="@+id/alarmFragmentContainer">
+
+            <FrameLayout
+                android:id="@+id/fragmentWeatherAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.example.weatheralarmapp.FragmentWeatherAlarmClosed"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
+
 
 
 </LinearLayout>

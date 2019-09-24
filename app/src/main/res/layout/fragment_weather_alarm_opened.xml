@@ -45,24 +45,28 @@
         android:paddingBottom="20dp">
 
         <ImageView
+            android:id="@+id/imgWeatherAlarm5min"
             android:layout_width="90dp"
             android:layout_height="45dp"
             android:src="@drawable/five_m_g"
             android:layout_columnWeight="1"/>
 
         <ImageView
+            android:id="@+id/imgWeatherAlarm10min"
             android:layout_width="90dp"
             android:layout_height="45dp"
             android:src="@drawable/ten_m_g"
             android:layout_columnWeight="1"/>
 
         <ImageView
+            android:id="@+id/imgWeatherAlarm15min"
             android:layout_width="90dp"
             android:layout_height="45dp"
             android:src="@drawable/fifteen_m_g"
             android:layout_columnWeight="1"/>
 
         <ImageView
+            android:id="@+id/imgWeatherAlarm20min"
             android:layout_width="90dp"
             android:layout_height="45dp"
             android:src="@drawable/twenty_m_g"
