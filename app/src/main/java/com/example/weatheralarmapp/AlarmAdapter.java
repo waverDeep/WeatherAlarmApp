@@ -1,8 +1,12 @@
 package com.example.weatheralarmapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import com.example.weatheralarmapp.DB.AlarmDBHelper;
 
 import java.util.ArrayList;
 
@@ -153,19 +159,21 @@ class AlarmAdapter extends BaseAdapter {
 
         AlarmItem items = new AlarmItem();
 
-        items.setMon(item.mon);
-        items.setTue(item.tue);
-        items.setWed(item.wed);
-        items.setThu(item.thu);
-        items.setFri(item.fri);
-        items.setSat(item.sat);
-        items.setSun(item.sun);
+
+        if(item.getbMon() != 0){items.ivMon.setImageResource(R.drawable.mon);}
+        if(item.getbTue() != 0){items.ivTue.setImageResource(R.drawable.tue);}
+        if(item.getbWed() != 0){items.ivWed.setImageResource(R.drawable.wed);}
+        if(item.getbThu() != 0){items.ivThu.setImageResource(R.drawable.thu);}
+        if(item.getbFri() != 0){items.ivFri.setImageResource(R.drawable.fri);}
+        if(item.getbSat() != 0){items.ivSat.setImageResource(R.drawable.sat);}
+        if(item.getbSun() != 0){items.ivSun.setImageResource(R.drawable.sun);}
+
         items.setHour(item.hour);
         items.setMinute(item.minute);
         items.setNoon(item.noon);
- //       items.setIvAlarmEdit(item.ivAlarmEdit);
-//        items.setTbAlarmDeleteCheck(item.tbAlarmDeleteCheck);
- //       items.setToggleButton(item.toggleButton);
+        items.setIvAlarmEdit(item.ivAlarmEdit);
+        items.setTbAlarmDeleteCheck(item.tbAlarmDeleteCheck);
+        items.setToggleButton(item.toggleButton);
 
         alarms.add(items);
     }
