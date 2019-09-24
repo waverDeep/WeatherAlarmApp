@@ -31,20 +31,6 @@
                 android:text="편집"
                 android:visibility="visible"
                 android:textSize="12sp" />
-            <TextView
-                android:id="@+id/tvCancle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="30dp"
-                android:visibility="gone"
-                android:text="취소"
-                android:textColor="@color/textRed"
-                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -80,12 +66,9 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ListView
                 android:id="@+id/listAlarm"
@@ -107,8 +90,6 @@
                 android:background="#bfbfbf"/>
         </RelativeLayout>
 
-
-    </ScrollView>
 
 
 

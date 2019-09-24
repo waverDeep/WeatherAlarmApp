@@ -8,38 +8,73 @@ import android.util.Log;
 
 import com.example.weatheralarmapp.alarm.AlarmItem;
 
-public class AlarmDBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "alarm.db";
-    public static final int DATABASE_VERSION = 1;
+    //구지 쿼리문 자체를 static으로 사용하실 필요는 없습니당 메모리 낭비를 초래할 수 있어요
+    //public static final String CREATE_TABLE = "create table alarm (id integer primary key, noon text, hour integer, minute integer, mon boolean, tue boolean, wed boolean, thu boolean, fri boolean, sat boolean, sun boolean, delay integer, weather text);";
+    //public static final String DROP_TABLE =
 
-    public static final String CREATE_TABLE = "create table alarm (id integer primary key, noon text, hour integer, minute integer, mon boolean, tue boolean, wed boolean, thu boolean, fri boolean, sat boolean, sun boolean, delay integer, weather text);";
-    public static final String DROP_TABLE = "drop table if exists alarm";
-
-    public AlarmDBHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    // 생성자
+    public DBHelper(Context context) {
+        super(context, DBConst.DATABASE_NAME, null, DBConst.DATABASE_VERSION);
     }
 
+    // 데이터베이스 테이블 생성
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE);
+        final String alarmSQL = "create table alarm (" +
+                        "id integer primary key, " +
+                        "noon text, " +
+                        "hour integer, " +
+                        "minute integer, " +
+                        "mon integer, " +
+                        "tue integer, " +
+                        "wed integer, " +
+                        "thu integer, " +
+                        "fri integer, " +
+                        "sat integer, " +
+                        "sun integer, " +
+                        "delay integer, " +
+                        "weather text);";
+
+        final String diarySQL = "create table diary (" +
+                "id integer primary key, " +
+                "day text," +
+                " memo_contents text);";
+
+        db.execSQL(alarmSQL);
+        db.execSQL(diarySQL);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(DROP_TABLE);
+        final String alarmSQL = "drop table if exists alarm";
+        final String diarySQL = "drop table if exists diary";
+        db.execSQL(alarmSQL);
+        db.execSQL(diarySQL);
         onCreate(db);
     }
 
-    public void addContact(String id, String noon, int hour, int minute, boolean mon, boolean tue, boolean wed, boolean thu, boolean fri, boolean sat, boolean sun, int delay, String weather, SQLiteDatabase database) {
-        String sql = "insert into alarm values('" + id + "', '" + noon + "', '" + hour + "', '" + minute + "', '"+ mon + "', '"+ tue + "', '"+ wed + "', '"+ thu + "', '"+ fri + "', '"+ sat + "', '"+ sun + "', '" + delay + "', '" + weather + "');";
-        database.execSQL(sql);
+    // 현재 이 클래스는 SQLiteOpenHelper를 상속받고 있기 때문에 구지 SQLiteDatabase 를 매개변수로 주지 않으셔도됩니다.
+    public void addContact(String id, String noon, int hour, int minute,
+                           int mon, int tue, int wed, int thu, int fri, int sat, int sun, int delay, String weather) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = String.format("insert int to alarm values('%d','%d','%d','%d','%d','%d','%d','%d','%d','%d','%d','%d','%s');",
+                                      id, noon, hour, minute, mon, tue, wed, thu, fri, sat, sun, delay, weather);
+        db.execSQL(sql);
+
+        db.close();
     }
 
-    public Cursor readContact(SQLiteDatabase database) {
+    public Cursor readContact() {
+        SQLiteDatabase db = getReadableDatabase();
+
         String sql = "select id from alarm";
-        Cursor cursor1 = database.rawQuery(sql, null);
+        Cursor cursor1 = db.rawQuery(sql, null);
+
+        db.close();
         return cursor1;
+
     }
 
     public void AllDelete(SQLiteDatabase database) {
@@ -61,11 +96,11 @@ public class AlarmDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public AlarmItem readAlarm(AlarmDBHelper dbHelper) {
+    public AlarmItem readAlarm(DBHelper dbHelper) {
 
             SQLiteDatabase database = dbHelper.getReadableDatabase();
 
-            Cursor cursor = dbHelper.readContact(database);
+            Cursor cursor = dbHelper.readContact();
 /*
         while (cursor.moveToNext()) {
             item.setHour(Integer.parseInt(cursor.getString(2)));

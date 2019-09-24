@@ -30,19 +30,16 @@ public class AlarmAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_add);
 
-        tvAlarmEditCancel = (TextView)findViewById(R.id.tvAlarmEditCancel);
-        tvAlarmEditSave = (TextView)findViewById(R.id.tvAlarmEditSave);
+        tvAlarmEditCancel = findViewById(R.id.tvAlarmEditCancel);
+        tvAlarmEditSave = findViewById(R.id.tvAlarmEditSave);
 
-        imgRepeatMon = (ImageView)findViewById(R.id.imgRepeatMon);
-        imgRepeatTue = (ImageView)findViewById(R.id.imgRepeatTue);
-        imgRepeatWed = (ImageView)findViewById(R.id.imgRepeatWed);
-        imgRepeatThur = (ImageView)findViewById(R.id.imgRepeatThur);
-        imgRepeatFri = (ImageView)findViewById(R.id.imgRepeatFri);
-        imgRepeatSat = (ImageView)findViewById(R.id.imgRepeatSat);
-        imgRepeatSun = (ImageView)findViewById(R.id.imgRepeatSun);
-
-
-//        weatherAlarmClosedFragment = (WeatherAlarmClosedFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentWeatherAlarm);
+        imgRepeatMon = findViewById(R.id.imgRepeatMon);
+        imgRepeatTue = findViewById(R.id.imgRepeatTue);
+        imgRepeatWed = findViewById(R.id.imgRepeatWed);
+        imgRepeatThur = findViewById(R.id.imgRepeatThur);
+        imgRepeatFri = findViewById(R.id.imgRepeatFri);
+        imgRepeatSat = findViewById(R.id.imgRepeatSat);
+        imgRepeatSun = findViewById(R.id.imgRepeatSun);
 
         if (findViewById(R.id.fragmentWeatherAlarm) != null)
         {

@@ -38,25 +38,7 @@ public class AlarmAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        final int pos = position;
         context = parent.getContext();
-/*
-        AlarmView view = new AlarmView(context);
-        AlarmItem item = alarms.get(pos);
-
-        view.setHour(item.getHour());
-        view.setMinute(item.getMinute());
-        view.setNoon(item.getNoon());
-        view.setIvMon(item.getMon());
-        view.setIvTue(item.getTue());
-        view.setIvWed(item.getWed());
-        view.setIvThu(item.getThu());
-        view.setIvFri(item.getFri());
-        view.setIvSat(item.getSat());
-        view.setIvSun(item.getSun());
-*/
-
 
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
@@ -65,70 +47,38 @@ public class AlarmAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView noonTextView = (TextView) convertView.findViewById(R.id.tvNoon) ;
-        TextView hourTextView = (TextView) convertView.findViewById(R.id.tvHour) ;
-        TextView minuteTextView = (TextView) convertView.findViewById(R.id.tvMinute) ;
-        ImageView monImageView = (ImageView) convertView.findViewById(R.id.ivMon);
-        ImageView tueImageView = (ImageView) convertView.findViewById(R.id.ivTue);
-        ImageView wedImageView = (ImageView) convertView.findViewById(R.id.ivWed);
-        ImageView thuImageView = (ImageView) convertView.findViewById(R.id.ivThu);
-        ImageView friImageView = (ImageView) convertView.findViewById(R.id.ivFri);
-        ImageView satImageView = (ImageView) convertView.findViewById(R.id.ivSat);
-        ImageView sunImageView = (ImageView) convertView.findViewById(R.id.ivSun);
-        final ToggleButton toggleButton = (ToggleButton) convertView.findViewById(R.id.toggleButton);
-        final ToggleButton tbAlarmDeleteCheck = (ToggleButton) convertView.findViewById(R.id.tbAlarmDeleteCheck);
-        ImageView ivAlarmEdit = (ImageView) convertView.findViewById(R.id.ivAlarmEdit);
+        TextView tvNoon = convertView.findViewById(R.id.tvNoon);
+        TextView tvHour = convertView.findViewById(R.id.tvHour);
+        TextView tvMinute = convertView.findViewById(R.id.tvMinute);
+        ImageView ivMon = convertView.findViewById(R.id.ivMon);
+        ImageView ivTue = convertView.findViewById(R.id.ivTue);
+        ImageView ivWed = convertView.findViewById(R.id.ivWed);
+        ImageView ivThu = convertView.findViewById(R.id.ivThu);
+        ImageView ivFri = convertView.findViewById(R.id.ivFri);
+        ImageView ivSat = convertView.findViewById(R.id.ivSat);
+        ImageView ivSun = convertView.findViewById(R.id.ivSun);
+        ToggleButton toggleButton = convertView.findViewById(R.id.toggleButton);
+        ToggleButton tbAlarmDeleteCheck = convertView.findViewById(R.id.tbAlarmDeleteCheck);
+        ImageView ivAlarmEdit = convertView.findViewById(R.id.ivAlarmEdit);
+
+        AlarmItem alarmItem = alarms.get(position);
+
+        // 데이터 세팅
+        tvNoon.setText(alarmItem.getNoon());
+        tvHour.setText(alarmItem.getHour()+"");
+        tvMinute.setText(alarmItem.getMinute()+"");
+        ivMon.setImageResource(alarmItem.getMon());
+        ivTue.setImageResource(alarmItem.getTue());
+        ivWed.setImageResource(alarmItem.getWed());
+        ivThu.setImageResource(alarmItem.getThu());
+        ivFri.setImageResource(alarmItem.getFri());
+        ivSat.setImageResource(alarmItem.getSat());
+        ivSun.setImageResource(alarmItem.getSun());
 
 
 
-/*
-        // Data Set(AlarmItem)에서 position에 위치한 데이터 참조 획득
-        AlarmItem alarmitem = alarms.get(position);
 
-        // 아이템 내 각 위젯에 데이터 반영
-        monImageView.setImageDrawable(alarmitem.getMon());
-        tueImageView.setImageDrawable(alarmitem.getTue());
-        wedImageView.setImageDrawable(alarmitem.getWed());
-        thuImageView.setImageDrawable(alarmitem.getThu());
-        friImageView.setImageDrawable(alarmitem.getFri());
-        satImageView.setImageDrawable(alarmitem.getSat());
-        sunImageView.setImageDrawable(alarmitem.getSun());
-        noonTextView.setText(alarmitem.getNoon());
-//        hourTextView.setText(alarmitem.getHour());
- //       minuteTextView.setText(alarmitem.getMinute());
-*/
 
-/*
-        toggleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean state = toggleButton.isChecked();
-                if(state == true)
-                {
-                    toggleButton.setChecked(false);
-                }
-                else if(state == false)
-                {
-                    toggleButton.setChecked(true);
-                }
-            }
-        });
-
-        tbAlarmDeleteCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean state = tbAlarmDeleteCheck.isChecked();
-                if(state == true)
-                {
-                    tbAlarmDeleteCheck.setChecked(false);
-                }
-                else if(state == false)
-                {
-                    tbAlarmDeleteCheck.setChecked(true);
-                }
-            }
-        });
-*/
         ivAlarmEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,25 +100,25 @@ public class AlarmAdapter extends BaseAdapter {
 
     public void addItem(AlarmItem item){
 
-        AlarmItem items = new AlarmItem();
+        AlarmItem temp = new AlarmItem();
 
 
-        if(item.getbMon() != 0){items.ivMon.setImageResource(R.drawable.mon);}
-        if(item.getbTue() != 0){items.ivTue.setImageResource(R.drawable.tue);}
-        if(item.getbWed() != 0){items.ivWed.setImageResource(R.drawable.wed);}
-        if(item.getbThu() != 0){items.ivThu.setImageResource(R.drawable.thu);}
-        if(item.getbFri() != 0){items.ivFri.setImageResource(R.drawable.fri);}
-        if(item.getbSat() != 0){items.ivSat.setImageResource(R.drawable.sat);}
-        if(item.getbSun() != 0){items.ivSun.setImageResource(R.drawable.sun);}
+        if(item.getbMon() != 0){temp.setMon(R.drawable.mon);}
+        if(item.getbTue() != 0){temp.setTue(R.drawable.tue);}
+        if(item.getbWed() != 0){temp.setWed(R.drawable.wed);}
+        if(item.getbThu() != 0){temp.setbThu(R.drawable.thu);}
+        if(item.getbFri() != 0){temp.setFri(R.drawable.fri);}
+        if(item.getbSat() != 0){temp.setSat(R.drawable.sat);}
+        if(item.getbSun() != 0){temp.setSun(R.drawable.sun);}
 
-        items.setHour(item.hour);
-        items.setMinute(item.minute);
-        items.setNoon(item.noon);
-        items.setIvAlarmEdit(item.ivAlarmEdit);
-        items.setTbAlarmDeleteCheck(item.tbAlarmDeleteCheck);
-        items.setToggleButton(item.toggleButton);
+        temp.setHour(item.hour);
+        temp.setMinute(item.minute);
+        temp.setNoon(item.noon);
+        temp.setIvAlarmEdit(item.ivAlarmEdit);
+        temp.setTbAlarmDeleteCheck(item.tbAlarmDeleteCheck);
+        temp.setToggleButton(item.toggleButton);
 
-        alarms.add(items);
+        alarms.add(temp);
     }
 
 }

@@ -6,37 +6,37 @@ import android.media.Image;
 import android.widget.ImageView;
 import android.widget.ToggleButton;
 
+import com.example.weatheralarmapp.R;
+
 public class AlarmItem {
     String noon;
     int hour;
     int minute;
-    Drawable mon;
-    Drawable tue;
-    Drawable wed;
-    Drawable thu;
-    Drawable fri;
-    Drawable sat;
-    Drawable sun;
 
-    int bMon;
-    int bTue;
-    int bWed;
-    int bThu;
-    int bFri;
-    int bSat;
-    int bSun;
+    int mon = R.drawable.mon_g;
+    int tue = R.drawable.tue_g;
+    int wed = R.drawable.wed_g;
+    int thu = R.drawable.thu_g;
+    int fri = R.drawable.fri_g;
 
+    int sat = R.drawable.sat_g;
+    int sun = R.drawable.sun_g;
+
+    int bMon = 0;
+    int bTue = 0;
+    int bWed = 0;
+    int bThu = 0;
+    int bFri = 0;
+    int bSat = 0;
+    int bSun = 0;
+
+
+    ////////view//////////
     ToggleButton toggleButton;
     ToggleButton tbAlarmDeleteCheck;
     Drawable ivAlarmEdit;
 
-    ImageView ivMon;
-    ImageView ivTue;
-    ImageView ivWed;
-    ImageView ivThu;
-    ImageView ivFri;
-    ImageView ivSat;
-    ImageView ivSun;
+
 
     public AlarmItem() {
     }
@@ -158,59 +158,59 @@ public class AlarmItem {
         this.minute = minute;
     }
 
-    public Drawable getMon() {
+    public int getMon() {
         return mon;
     }
 
-    public void setMon(Drawable mon) {
+    public void setMon(int mon) {
         this.mon = mon;
     }
 
-    public Drawable getTue() {
+    public int getTue() {
         return tue;
     }
 
-    public void setTue(Drawable tue) {
+    public void setTue(int tue) {
         this.tue = tue;
     }
 
-    public Drawable getWed() {
+    public int getWed() {
         return wed;
     }
 
-    public void setWed(Drawable wed) {
+    public void setWed(int wed) {
         this.wed = wed;
     }
 
-    public Drawable getThu() {
+    public int getThu() {
         return thu;
     }
 
-    public void setThu(Drawable thu) {
+    public void setThu(int thu) {
         this.thu = thu;
     }
 
-    public Drawable getFri() {
+    public int getFri() {
         return fri;
     }
 
-    public void setFri(Drawable fri) {
+    public void setFri(int fri) {
         this.fri = fri;
     }
 
-    public Drawable getSat() {
+    public int getSat() {
         return sat;
     }
 
-    public void setSat(Drawable sat) {
+    public void setSat(int sat) {
         this.sat = sat;
     }
 
-    public Drawable getSun() {
+    public int getSun() {
         return sun;
     }
 
-    public void setSun(Drawable sun) {
+    public void setSun(int sun) {
         this.sun = sun;
     }
 
