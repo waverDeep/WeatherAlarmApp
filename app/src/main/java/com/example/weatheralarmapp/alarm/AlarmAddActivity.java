@@ -1,17 +1,17 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.alarm;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.weatheralarmapp.R;
+
 public class AlarmAddActivity extends AppCompatActivity {
 
-    FragmentWeatherAlarmOpened fragmentWeatherAlarmOpened;
-    FragmentWeatherAlarmClosed fragmentWeatherAlarmClosed;
+    WeatherAlarmOpenedFragment weatherAlarmOpenedFragment;
+    WeatherAlarmClosedFragment weatherAlarmClosedFragment;
 
     TextView tvAlarmEditCancel;
     TextView tvAlarmEditSave;
@@ -42,7 +42,7 @@ public class AlarmAddActivity extends AppCompatActivity {
         imgRepeatSun = (ImageView)findViewById(R.id.imgRepeatSun);
 
 
-//        fragmentWeatherAlarmClosed = (FragmentWeatherAlarmClosed)getSupportFragmentManager().findFragmentById(R.id.fragmentWeatherAlarm);
+//        weatherAlarmClosedFragment = (WeatherAlarmClosedFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentWeatherAlarm);
 
         if (findViewById(R.id.fragmentWeatherAlarm) != null)
         {
@@ -51,12 +51,12 @@ public class AlarmAddActivity extends AppCompatActivity {
                 return;
             }
 
-            fragmentWeatherAlarmClosed = new FragmentWeatherAlarmClosed();
-            getSupportFragmentManager().beginTransaction().add(R.id.fragmentWeatherAlarm,fragmentWeatherAlarmClosed).commit();
+            weatherAlarmClosedFragment = new WeatherAlarmClosedFragment();
+            getSupportFragmentManager().beginTransaction().add(R.id.fragmentWeatherAlarm, weatherAlarmClosedFragment).commit();
         }
 
-        fragmentWeatherAlarmOpened = new FragmentWeatherAlarmOpened();
-//        getSupportFragmentManager().beginTransaction().add(R.id.alarmFragmentContainer,fragmentWeatherAlarmOpened).commit();
+        weatherAlarmOpenedFragment = new WeatherAlarmOpenedFragment();
+//        getSupportFragmentManager().beginTransaction().add(R.id.alarmFragmentContainer,weatherAlarmOpenedFragment).commit();
 
 
 
@@ -65,9 +65,9 @@ public class AlarmAddActivity extends AppCompatActivity {
 
     public void onFragmentChange(int index){
         if(index == 0){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentWeatherAlarm, fragmentWeatherAlarmOpened).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentWeatherAlarm, weatherAlarmOpenedFragment).commit();
         } else if(index == 1){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentWeatherAlarm, fragmentWeatherAlarmClosed).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentWeatherAlarm, weatherAlarmClosedFragment).commit();
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.alarm;
 
 
 import android.graphics.drawable.Drawable;

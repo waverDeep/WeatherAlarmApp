@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".FragmentAlarm">
+    tools:context=".main_fragment.AlarmFragment">
 
 
     <LinearLayout

@@ -1,13 +1,12 @@
-package com.example.weatheralarmapp.DB;
+package com.example.weatheralarmapp.db_connect;
 
-import android.app.Application;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.weatheralarmapp.AlarmItem;
+import com.example.weatheralarmapp.alarm.AlarmItem;
 
 public class AlarmDBHelper extends SQLiteOpenHelper {
 

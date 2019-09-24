@@ -1,4 +1,4 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.main_fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentWeather extends Fragment {
+import com.example.weatheralarmapp.R;
+
+public class WeatherFragment extends Fragment {
 
     @Nullable
     @Override

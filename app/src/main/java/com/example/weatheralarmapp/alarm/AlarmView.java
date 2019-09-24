@@ -1,4 +1,4 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.alarm;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import androidx.annotation.DrawableRes;
+import com.example.weatheralarmapp.R;
 
 
 public class AlarmView extends LinearLayout {
@@ -44,7 +44,7 @@ public class AlarmView extends LinearLayout {
 
     public void init(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.alarm_item, this, true);
+        inflater.inflate(R.layout.listview_item_alarm, this, true);
 
         ivMon = (ImageView) findViewById(R.id.ivMon);
         ivTue = (ImageView) findViewById(R.id.ivTue);

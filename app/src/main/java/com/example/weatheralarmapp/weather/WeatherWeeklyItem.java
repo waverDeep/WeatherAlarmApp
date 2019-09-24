@@ -1,4 +1,4 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.weather;
 
 public class WeatherWeeklyItem {
     private String day;

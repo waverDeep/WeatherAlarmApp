@@ -1,4 +1,4 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.weather;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.weatheralarmapp.R;
 
 public class CustomDialogWeather extends DialogFragment implements View.OnClickListener{
 
@@ -27,7 +29,7 @@ public class CustomDialogWeather extends DialogFragment implements View.OnClickL
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.weather_dialog_layout, container);
+        View view = inflater.inflate(R.layout.layout_weather_dialog, container);
         setCancelable(false);
 
         btnSearch = (ImageView)view.findViewById(R.id.btnSearch);

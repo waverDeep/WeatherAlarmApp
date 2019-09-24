@@ -1,16 +1,10 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.main_fragment;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,16 +12,16 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.view.menu.MenuAdapter;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.weatheralarmapp.DB.AlarmDBHelper;
+import com.example.weatheralarmapp.alarm.AlarmAdapter;
+import com.example.weatheralarmapp.alarm.AlarmAddActivity;
+import com.example.weatheralarmapp.alarm.AlarmItem;
+import com.example.weatheralarmapp.R;
+import com.example.weatheralarmapp.db_connect.AlarmDBHelper;
 
-import java.util.ArrayList;
 
-
-public class FragmentAlarm extends Fragment {
+public class AlarmFragment extends Fragment {
 
     View view;
 

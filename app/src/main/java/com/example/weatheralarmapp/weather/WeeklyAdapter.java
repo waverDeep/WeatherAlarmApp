@@ -1,4 +1,4 @@
-package com.example.weatheralarmapp;
+package com.example.weatheralarmapp.weather;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.weatheralarmapp.R;
 
 import java.util.ArrayList;
 
@@ -49,7 +51,7 @@ public class WeeklyAdapter extends RecyclerView.Adapter<WeeklyAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.weather_weekly_listview_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_weather_weekly, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

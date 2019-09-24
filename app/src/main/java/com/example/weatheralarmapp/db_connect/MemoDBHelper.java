@@ -1,4 +1,4 @@
-package com.example.weatheralarmapp.DB;
+package com.example.weatheralarmapp.db_connect;
 
 import android.content.Context;
 import android.database.Cursor;

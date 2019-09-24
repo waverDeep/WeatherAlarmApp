@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.weatheralarmapp.main_fragment.AlarmFragment;
+import com.example.weatheralarmapp.main_fragment.MemoFragment;
+import com.example.weatheralarmapp.main_fragment.WeatherFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView txtBottomMenuWeather, txtBottomMenuAlarm, txtBottomMenuMemo;
@@ -20,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-    FragmentWeather fragmentWeather;
-    FragmentAlarm fragmentAlarm;
-    FragmentMemo fragmentMemo;
+    WeatherFragment weatherFragment;
+    AlarmFragment alarmFragment;
+    MemoFragment memoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
     private void InitFragment(){
         fragmentManager = getSupportFragmentManager();
 
-        fragmentWeather = new FragmentWeather();
-        fragmentMemo = new FragmentMemo();
-        fragmentAlarm = new FragmentAlarm();
+        weatherFragment = new WeatherFragment();
+        memoFragment = new MemoFragment();
+        alarmFragment = new AlarmFragment();
 
-        fragmentTransaction.replace(R.id.fragmentContainer, fragmentWeather).commit();
+        fragmentTransaction.replace(R.id.fragmentContainer, weatherFragment).commit();
 
     }
 
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId())
             {
                 case R.id.imgBottomMenuWeather:
-                    fragmentTransaction.replace(R.id.fragmentContainer, fragmentWeather).commit();
+                    fragmentTransaction.replace(R.id.fragmentContainer, weatherFragment).commit();
                     imgBottomMenuWeather.setImageResource(R.drawable.weather);
                     imgBottomMenuAlarm.setImageResource(R.drawable.alarm_g);
                     imgBottomMenuMemo.setImageResource(R.drawable.memo_g);
@@ -86,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     txtBottomMenuMemo.setTextColor(getResources().getColor(R.color.textGray));
                     break;
                 case R.id.imgBottomMenuAlarm:
-                    fragmentTransaction.replace(R.id.fragmentContainer, fragmentAlarm).commit();
+                    fragmentTransaction.replace(R.id.fragmentContainer, alarmFragment).commit();
                     imgBottomMenuWeather.setImageResource(R.drawable.weather_g);
                     imgBottomMenuAlarm.setImageResource(R.drawable.alarm);
                     imgBottomMenuMemo.setImageResource(R.drawable.memo_g);
@@ -96,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
                     break;
                 case R.id.imgBottomMenuMemo:
-                    fragmentTransaction.replace(R.id.fragmentContainer, fragmentMemo).commit();
+                    fragmentTransaction.replace(R.id.fragmentContainer, memoFragment).commit();
                     imgBottomMenuWeather.setImageResource(R.drawable.weather_g);
                     imgBottomMenuAlarm.setImageResource(R.drawable.alarm_g);
                     imgBottomMenuMemo.setImageResource(R.drawable.memo);
@@ -114,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             switch (v.getId()){
                 case R.id.txtBottomMenuWeather:
-                    fragmentTransaction.replace(R.id.fragmentContainer, fragmentWeather).commit();
+                    fragmentTransaction.replace(R.id.fragmentContainer, weatherFragment).commit();
                     imgBottomMenuWeather.setImageResource(R.drawable.weather);
                     imgBottomMenuAlarm.setImageResource(R.drawable.alarm_g);
                     imgBottomMenuMemo.setImageResource(R.drawable.memo_g);
@@ -123,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     txtBottomMenuMemo.setTextColor(getResources().getColor(R.color.textGray));
                     break;
                 case R.id.txtBottomMenuAlarm:
-                    fragmentTransaction.replace(R.id.fragmentContainer, fragmentAlarm).commit();
+                    fragmentTransaction.replace(R.id.fragmentContainer, alarmFragment).commit();
                     imgBottomMenuWeather.setImageResource(R.drawable.weather_g);
                     imgBottomMenuAlarm.setImageResource(R.drawable.alarm);
                     imgBottomMenuMemo.setImageResource(R.drawable.memo_g);
@@ -132,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                     txtBottomMenuMemo.setTextColor(getResources().getColor(R.color.textGray));
                     break;
                 case R.id.txtBottomMenuMemo:
-                    fragmentTransaction.replace(R.id.fragmentContainer, fragmentMemo).commit();
+                    fragmentTransaction.replace(R.id.fragmentContainer, memoFragment).commit();
                     imgBottomMenuWeather.setImageResource(R.drawable.weather_g);
                     imgBottomMenuAlarm.setImageResource(R.drawable.alarm_g);
                     imgBottomMenuMemo.setImageResource(R.drawable.memo);
