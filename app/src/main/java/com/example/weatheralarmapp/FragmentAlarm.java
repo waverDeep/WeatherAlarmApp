@@ -22,6 +22,8 @@ import androidx.appcompat.view.menu.MenuAdapter;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.weatheralarmapp.DB.AlarmDBHelper;
+
 import java.util.ArrayList;
 
 
@@ -60,7 +62,9 @@ public class FragmentAlarm extends Fragment {
 
         listAlarm.setAdapter(adapter);
 
-        adapter.addItem(new AlarmItem()); //여기서는 db에 있는 내용으로 받아와서 넣기
+        AlarmDBHelper db = new AlarmDBHelper(getContext());
+        AlarmItem alarm = db.readAlarm(db);
+        adapter.addItem(alarm); //여기서는 db에 있는 내용으로 받아와서 넣기
 
         /* 리스트 자체 클릭 기능은 없다
         listAlarm.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -2,6 +2,7 @@ package com.example.weatheralarmapp;
 
 
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.widget.ImageView;
 import android.widget.ToggleButton;
 
@@ -17,9 +18,97 @@ public class AlarmItem {
     Drawable sat;
     Drawable sun;
 
+    int bMon;
+    int bTue;
+    int bWed;
+    int bThu;
+    int bFri;
+    int bSat;
+    int bSun;
+
     ToggleButton toggleButton;
     ToggleButton tbAlarmDeleteCheck;
     Drawable ivAlarmEdit;
+
+    ImageView ivMon;
+    ImageView ivTue;
+    ImageView ivWed;
+    ImageView ivThu;
+    ImageView ivFri;
+    ImageView ivSat;
+    ImageView ivSun;
+
+    public AlarmItem() {
+    }
+
+    public AlarmItem(String noon, int hour, int minute, int bMon, int bTue, int bWed, int bThu, int bFri, int bSat, int bSun){
+        this.noon = noon;
+        this.hour = hour;
+        this.minute = minute;
+        this.bMon = bMon;
+        this.bTue = bTue;
+        this.bWed = bWed;
+        this.bThu = bThu;
+        this.bFri = bFri;
+        this.bSat = bSat;
+        this.bSun = bSun;
+    }
+
+    public int getbMon() {
+        return bMon;
+    }
+
+    public void setbMon(int bMon) {
+        this.bMon = bMon;
+    }
+
+    public int getbTue() {
+        return bTue;
+    }
+
+    public void setbTue(int bTue) {
+        this.bTue = bTue;
+    }
+
+    public int getbWed() {
+        return bWed;
+    }
+
+    public void setbWed(int bWed) {
+        this.bWed = bWed;
+    }
+
+    public int getbThu() {
+        return bThu;
+    }
+
+    public void setbThu(int bThu) {
+        this.bThu = bThu;
+    }
+
+    public int getbFri() {
+        return bFri;
+    }
+
+    public void setbFri(int bFri) {
+        this.bFri = bFri;
+    }
+
+    public int getbSat() {
+        return bSat;
+    }
+
+    public void setbSat(int bSat) {
+        this.bSat = bSat;
+    }
+
+    public int getbSun() {
+        return bSun;
+    }
+
+    public void setbSun(int bSun) {
+        this.bSun = bSun;
+    }
 
     public Drawable getIvAlarmEdit() {
         return ivAlarmEdit;
