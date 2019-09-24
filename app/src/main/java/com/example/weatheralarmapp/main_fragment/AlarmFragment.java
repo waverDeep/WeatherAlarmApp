@@ -1,5 +1,6 @@
 package com.example.weatheralarmapp.main_fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,12 +19,16 @@ import com.example.weatheralarmapp.alarm.AlarmAdapter;
 import com.example.weatheralarmapp.alarm.AlarmAddActivity;
 import com.example.weatheralarmapp.alarm.AlarmItem;
 import com.example.weatheralarmapp.R;
+import com.example.weatheralarmapp.db_connect.DBConst;
 import com.example.weatheralarmapp.db_connect.DBHelper;
+
+import java.util.ArrayList;
 
 
 public class AlarmFragment extends Fragment {
 
     View view;
+    Context context;
 
     TextView tvEdit;
     TextView tvAlarm;
@@ -45,25 +50,44 @@ public class AlarmFragment extends Fragment {
     // 로작업하는게 좋습니다.
     boolean editStatus = false;
 
+    DBHelper dbHelper;
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        context = container.getContext();
+
+        dbHelper = new DBHelper(context.getApplicationContext(), DBConst.ALARM_TABLE_NAME, null, DBConst.DATABASE_VERSION);
+
         view = inflater.inflate(R.layout.fragment_alarm, container, false);
 
         tvEdit = view.findViewById(R.id.tvEdit); //편집
         tvAlarm = view.findViewById(R.id.tvAlarm); //알람
         tvPlus = view.findViewById(R.id.tvPlus); //추가
-        listAlarm = (ListView) view.findViewById(R.id.listAlarm);
+        listAlarm = view.findViewById(R.id.listAlarm);
 
 
         adapter = new AlarmAdapter();
 
-        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
-        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
-        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
-        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
-        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
-        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
+        dbHelper.addContact("오전", 8, 10, 1, 1,0,1, 1, 1, 0, 0, "wea");
+        dbHelper.addContact("오전", 8, 10, 1, 1,0,1, 1, 1, 0, 0, "wea");
+        dbHelper.addContact("오전", 8, 10, 1, 1,0,1, 1, 1, 0, 0, "wea");
+        dbHelper.addContact("오전", 8, 10, 1, 1,0,1, 1, 1, 0, 0, "wea");
+
+//        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
+//        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
+//        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
+//        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
+//        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
+//        adapter.addItem(new AlarmItem("오전", 8, 10, 1, 1,0,1, 1, 1, 0));
+
+        ArrayList<AlarmItem> alarmItems = dbHelper.readContact();
+
+        for (AlarmItem item : alarmItems){
+            adapter.addItem(item);
+        }
 
         listAlarm.setAdapter(adapter);
 //
